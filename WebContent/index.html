@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Proyecto Web Service "Proceso de Desarrollo de Software"</title>
+		<link id="theme" rel="stylesheet" type="text/css" href="http://bootswatch.com/cerulean/bootstrap.min.css"/>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="./bootstrap/js/bootstrap.min.js"></script>
+		<script src="./js/jquery.xml2json.js"></script>
+		<script src="./js/jquery.json-2.4.min.js"></script>
+		<script src="./js/wstest.js"></script>
+
+		<style type="text/css">
+			body {
+			  padding-top: 20px;
+			}
+			h2 {
+				margin-top:10px;
+			}
+			
+			.page-header {
+				margin: 0 0 20px;
+			}
+			
+			.uvmlogo {
+				vertical-align:middle;
+				display:inline;
+				margin: 0 30px 0 0;
+			}
+		</style>
+	</head> 
+	<body>
+		<div class="container">
+			<div class="jumbotron">
+				<div class="page-header text-center">
+					<h2><img class="uvmlogo" src="./img/uvm.jpg" width="100" /> Proyecto Web Service </h2> 
+				</div>
+				<div class="well">
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#ws1" data-toggle="tab">Meteorología</a></li>
+						<li><a href="#ws3" data-toggle="tab">Divisa</a></li>
+						<li><a href="#ws4" data-toggle="tab">Geolocalización IP</a></li>
+						<li><a href="#ws5" data-toggle="tab">WebService Test</a></li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane active" id="ws1">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<p><a href="http://www.imn.ac.cr/MeteorologicoWS/MeteorologicoWS.asmx"><strong>Abir URL de Servicio</strong></a></p>
+									<p>Se esta invocando la operacion -PronosticoPorCiudad- la cual no recibe prámetros</p>
+								</div>
+								<div class="panel-footer">
+									<button type="button" class="btn btn-default" onclick="consultaWS1();">Ejecutar</button>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane" id="ws2">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<p><a href="http://www.service-repository.com/service/overview/1376273594"><strong>Abir URL de Servicio</strong></a></p>
+									<p>Seleccione la operación que desea ejecutar.</p>
+									<ul class="nav nav-tabs">
+										<li class="active"><a href="#ws2-o1" data-toggle="tab">getProviderList</a></li>
+										<li><a href="#ws2-o2" data-toggle="tab">getDollarValue</a></li>
+										<li><a href="#ws2-o3" data-toggle="tab">getDataSet</a></li>
+									</ul>
+									<div class="tab-content">
+										<div class="tab-pane active" id="ws2-o1">
+											<div class="panel panel-default">
+												<div class="panel-body">
+													<p>Esta operación no requiere parametros</p>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane" id="ws2-o2">
+											<div class="panel panel-default">
+												<div class="panel-body">
+													<label>Provider: </label><input id="ws2-o2-p1" type="text"/>
+													<label>Currency: </label><input id="ws2-o2-p2" type="text"/>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane" id="ws2-o3">
+											<div class="panel panel-default">
+												<div class="panel-body">
+													<label>Provider: </label><input id="ws2-o3-p1" type="text"/>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<div class="panel-footer">
+									<button type="button" class="btn btn-default" onclick="consultaWS2();">Ejecutar</button>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane" id="ws3">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<p><a href="http://www.webservicex.com/CurrencyConvertor.asmx"><strong>Abir URL de Servicio</strong></a></p>
+									<p>Seleccione la operación que desea ejecutar.</p>
+									<ul class="nav nav-tabs">
+										<li class="active"><a href="#ws3-o1" data-toggle="tab">Conversión Divisa</a></li>
+										
+									</ul>
+									<div class="tab-content">
+									
+									<div class="tab-pane active" id="ws3-o1">
+											<div class="panel panel-default">
+												<div class="panel-body">
+													<label>Divisa Desde: </label><input id="ws3-o1-p1" type="text"/>
+													<label>Divisa Hacia: </label><input id="ws3-o1-p2" type="text"/>
+												</div>
+											</div>
+									</div>
+
+									</div>									
+								</div>
+								<div class="panel-footer">
+									<button type="button" class="btn btn-default" onclick="consultaWS3();">Ejecutar</button>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane" id="ws4">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<p><a href="http://www.webservicex.net/geoipservice.asmx"><strong>Abir URL de Servicio</strong></a></p>
+									<p>Seleccione la operación que desea ejecutar.</p>
+									<ul class="nav nav-tabs">
+										<li class="active"><a href="#ws4-o1" data-toggle="tab">País Ip</a></li>
+						
+									</ul>
+									<div class="tab-content">
+										<div class="tab-pane active" id="ws4-o1">
+											<div class="panel panel-default">
+												<div class="panel-body">
+													<label>IP: </label><input id="ws4-o1-p1" type="text"/>
+												</div>
+											</div>
+										</div>
+									
+									</div>
+								</div>
+								<div class="panel-footer">
+									<button type="button" class="btn btn-default" onclick="consultaWS4();">Ejecutar</button>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane" id="ws5">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<p><a href="http://localhost:8080/WebServiceTest/service/validaciones.wsdl"><strong>Abir URL de Servicio</strong></a></p>
+									<p>Seleccione la operación que desea ejecutar.</p>
+									<ul class="nav nav-tabs">
+										<li class="active"><a href="#ws5-o1" data-toggle="tab">RUT</a></li>
+										<li><a href="#ws5-o2" data-toggle="tab">Seguridad Password</a></li>
+									
+									</ul>
+									<div class="tab-content">
+										<div class="tab-pane active" id="ws5-o1">
+											<div class="panel panel-default">
+												<div class="panel-body">
+													<label>RUT: </label><input id="ws5-o1-p1" type="text"/>
+													<label>cv: </label><input id="ws5-o1-p2" type="text"/>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane" id="ws5-o2">
+											<div class="panel panel-default">
+												<div class="panel-body">
+													<label>Password: </label><input id="ws5-o2-p1" type="password"/>
+
+												</div>
+											</div>
+										</div>
+									
+									</div>
+
+								</div>
+								<div class="panel-footer">
+									<button type="button" class="btn btn-default" onclick="consultaWS5();">Ejecutar</button>
+								</div>
+							</div>
+						</div>
+						
+						
+					</div>
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+						Respuesta
+						<button type="button" class="btn btn-default" onclick="limpiar();">Limpiar</button>
+						</div>
+						<div class="panel-body">
+							<pre id="resultado"></pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

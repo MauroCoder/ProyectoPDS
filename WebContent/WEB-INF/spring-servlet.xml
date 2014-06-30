@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-2.5.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+    <context:component-scan base-package="controller, model"/>
+    
+   <bean id="messageFactory" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory">
+    	<property name="soapVersion">
+            <util:constant static-field="org.springframework.ws.soap.SoapVersion.SOAP_12"/>
+        </property>
+    </bean>
+    <bean id="webServiceTemplate" class="org.springframework.ws.client.core.WebServiceTemplate">
+		<constructor-arg ref="messageFactory"/>
+		<property name="defaultUri" value="http://www.imn.ac.cr/MeteorologicoWS/MeteorologicoWS.asmx"/>
+		<property name="messageSender">
+     		<bean class="org.springframework.ws.transport.http.HttpComponentsMessageSender" />
+     	</property>
+	</bean>
+	<bean id="messageFactory2" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory">
+    	<property name="soapVersion">
+            <util:constant static-field="org.springframework.ws.soap.SoapVersion.SOAP_11"/>
+        </property>
+    </bean>
+    <bean id="webServiceTemplate2" class="org.springframework.ws.client.core.WebServiceTemplate">
+		<constructor-arg ref="messageFactory2"/>
+		<property name="defaultUri" value="http://localhost:8080/WebServiceTest/service/"/>
+		<property name="messageSender">
+     		<bean class="org.springframework.ws.transport.http.HttpComponentsMessageSender" />
+     	</property>
+	</bean>
+</beans>

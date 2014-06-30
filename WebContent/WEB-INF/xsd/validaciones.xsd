@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/validaciones/" targetNamespace="http://www.example.org/validaciones/">
+
+	<xs:element name="ValidarEmailRequest">
+        <xs:complexType>
+            <xs:sequence>
+				<xs:element name="email" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ValidarEmailResponse" type="xs:string"></xs:element>
+
+	<xs:element name="ValidarRUTRequest">
+        <xs:complexType>
+            <xs:sequence>
+	    		<xs:element name="RUT" type="xs:int"></xs:element>
+	    		<xs:element name="cv" type="xs:string"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+    <xs:element name="ValidarRUTResponse" type="xs:string"></xs:element>
+
+	<xs:element name="NivelSeguridadPasswordRequest">
+        <xs:complexType>
+            <xs:sequence>
+	    		<xs:element name="password" type="xs:string"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+    <xs:element name="NivelSeguridadPasswordResponse" type="xs:int"></xs:element>
+
+</xs:schema>
