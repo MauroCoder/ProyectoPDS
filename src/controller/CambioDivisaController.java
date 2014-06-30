@@ -21,6 +21,7 @@ public class CambioDivisaController {
 	@ResponseBody
 	public String consultaConversionRate( @RequestParam("FromCurrency") String FromCurrency, @RequestParam("ToCurrency") String ToCurrency, Model model ){
 		log.debug( "Procesando /CambioDivisa/ConversionRate.form" );
+		
 		return service.getConversionRate( FromCurrency,ToCurrency );
 	}
 
