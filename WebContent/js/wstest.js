@@ -73,6 +73,19 @@ function consultaWS5(){
 	}
 }
 
+
+function consultaWS6(){
+	limpiar();
+	loadimage();
+	if( $("#ws6-o1").hasClass( "active" ) ){
+		$.get( "./Victor/sumar.form", { primero: $("#ws6-o1-p1").val(), segundo:$("#ws6-o1-p2").val() }, function( data ) {
+			console.log($.xml2json( data ));
+			$( "#resultado" ).text( 'El resultado es: ' + $.xml2json( data ).return );
+			}
+		);
+	}
+}
+
 function loadimage(){
 	$("#resultado").html('<img src="./img/11.gif" />');
 }

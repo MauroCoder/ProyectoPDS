@@ -38,4 +38,11 @@
      		<bean class="org.springframework.ws.transport.http.HttpComponentsMessageSender" />
      	</property>
 	</bean>
+	<bean id="webServiceTemplate3" class="org.springframework.ws.client.core.WebServiceTemplate">
+		<constructor-arg ref="messageFactory2"/>
+		<property name="defaultUri" value="http://190.45.130.80:8080/Wsjones2/EnteroEnorme"/>
+		<property name="messageSender">
+     		<bean class="org.springframework.ws.transport.http.HttpComponentsMessageSender" />
+     	</property>
+	</bean>
 </beans>

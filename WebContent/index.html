@@ -43,6 +43,7 @@
 						<li><a href="#ws3" data-toggle="tab">Divisa</a></li>
 						<li><a href="#ws4" data-toggle="tab">Geolocalización IP</a></li>
 						<li><a href="#ws5" data-toggle="tab">WebService Test</a></li>
+						<li><a href="#ws6" data-toggle="tab">WebService Victor</a></li>
 					</ul>
 					<div class="tab-content">
 						<div class="tab-pane active" id="ws1">
@@ -182,6 +183,35 @@
 								</div>
 								<div class="panel-footer">
 									<button type="button" class="btn btn-default" onclick="consultaWS5();">Ejecutar</button>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane" id="ws6">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<p><a href=""><strong>Abir URL de Servicio</strong></a></p>
+									<p>Seleccione la operación que desea ejecutar.</p>
+									<ul class="nav nav-tabs">
+										<li class="active"><a href="#ws6-o1" data-toggle="tab">suma</a></li>
+										
+									
+									</ul>
+
+								</div>
+								
+								<div class="tab-content">
+										<div class="tab-pane active" id="ws6-o1">
+											<div class="panel panel-default">
+												<div class="panel-body">
+													<label>primero: </label><input id="ws6-o1-p1" type="text"/>
+													<label>segundo: </label><input id="ws6-o1-p2" type="text"/>
+												</div>
+											</div>
+										</div>
+									
+									</div>
+								<div class="panel-footer">
+									<button type="button" class="btn btn-default" onclick="consultaWS6();">Ejecutar</button>
 								</div>
 							</div>
 						</div>
